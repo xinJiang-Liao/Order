@@ -23,6 +23,12 @@
       ],
       "@app/lib/*": [
         "libs/lib/src/*"
+      ],
+      "@app/module": [
+        "libs/module/src"
+      ],
+      "@app/module/*": [
+        "libs/module/src/*"
       ]
     }
   }
