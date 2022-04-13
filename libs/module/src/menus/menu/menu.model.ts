@@ -1,7 +1,7 @@
 import { Column, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'western_food', timestamps: false })
-export class Food extends Model {
+@Table({ tableName: 'foods', timestamps: false })
+export class foods extends Model {
   @Column
   /**
    * 简介
@@ -31,4 +31,10 @@ export class Food extends Model {
    * 图片
    * */
   food_Image: string;
+
+  @Column
+  /**
+   * 类型
+   * */
+  type: string;
 }

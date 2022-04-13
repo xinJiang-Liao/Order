@@ -1,11 +1,11 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 import { GoodsService } from './goods.service';
 import { InjectConnection } from '@nestjs/sequelize';
 import { Sequelize } from 'sequelize-typescript';
 import { MenuService } from '@app/module/menus/menu/menu.service';
-import { Food } from '@app/module/menus/menu/menu.model';
+import { foods } from '@app/module/menus/menu/menu.model';
 
-@Controller()
+@Controller('goods')
 export class GoodsController {
   constructor(
     private readonly goodsService: GoodsService,
@@ -14,7 +14,7 @@ export class GoodsController {
   ) {}
 
   @Get('event')
-  async getHello(): Promise<Food[]> {
+  async getHello(): Promise<foods[]> {
     try {
       await this.sequelize.authenticate();
       console.log('连接已成功建立');
@@ -23,4 +23,6 @@ export class GoodsController {
     }
     return await this.menuService.index();
   }
+
+  // @Post('post')
 }

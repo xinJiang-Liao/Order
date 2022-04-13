@@ -43,6 +43,15 @@
       "compilerOptions": {
         "tsConfigPath": "libs/module/tsconfig.lib.json"
       }
+    },
+    "hotel": {
+      "type": "application",
+      "root": "apps/hotel",
+      "entryFile": "main",
+      "sourceRoot": "apps/hotel/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/hotel/tsconfig.app.json"
+      }
     }
   }
 }
