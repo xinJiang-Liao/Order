@@ -44,9 +44,17 @@ export class login extends Model {
    * */
   resume: string;
 
-  @Column
-  /**
-   * 权限等级
-   * */
-  level: string;
+  // @Column
+  // /**
+  //  * 权限等级
+  //  * */
+  // level: string;
+
+  getModalType(): typeof login {
+    return login;
+  }
+
+  status(): number {
+    return 0;
+  }
 }
