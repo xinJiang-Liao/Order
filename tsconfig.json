@@ -18,18 +18,10 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@app/lib": [
-        "libs/lib/src"
-      ],
-      "@app/lib/*": [
-        "libs/lib/src/*"
-      ],
-      "@app/module": [
-        "libs/module/src"
-      ],
-      "@app/module/*": [
-        "libs/module/src/*"
-      ]
+      "@app/libs": ["libs/libs/src"],
+      "@app/libs/*": ["libs/libs/src/*"],
+      "@app/module": ["libs/module/src"],
+      "@app/module/*": ["libs/module/src/*"]
     }
   }
 }

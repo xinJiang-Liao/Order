@@ -1,5 +1,6 @@
 import { Model } from 'sequelize-typescript';
 import { QueryTypes, Sequelize } from 'sequelize';
+// import { login } from '@app/module/login/login.model';
 
 export const COLUMN_S1 = 'S1';
 

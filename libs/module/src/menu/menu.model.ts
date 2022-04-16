@@ -37,4 +37,14 @@ export class foods extends Model {
    * 类型
    * */
   type: string;
+
+  @Column
+  /**
+   * 规格
+   * */
+  volume: string;
+
+  getModalType(): typeof foods {
+    return foods;
+  }
 }
