@@ -23,7 +23,8 @@ export class HotelController {
     const coupons = await this.loginService.login(body);
     if (coupons) {
       if (coupons.password == body.password) {
-        return { status: true, code: coupons.code };
+        console.log();
+        return { status: true, code: coupons.code, coupons: coupons };
       } else {
         return { status: false };
       }

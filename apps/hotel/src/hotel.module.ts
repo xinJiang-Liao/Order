@@ -5,10 +5,10 @@ import { HotelService } from './hotel.service';
 import { LoginModule } from '@app/module/login/login.module';
 
 import { GoodsModule } from '../../goods/src/goods.module';
-import { OrderModule } from '../../order/src/app.module';
+import { OrdersModule } from '../../order/src/app.module';
 
 @Module({
-  imports: [LoginModule, GoodsModule, OrderModule],
+  imports: [LoginModule, GoodsModule, OrdersModule],
   controllers: [HotelController],
   providers: [HotelService],
 })
