@@ -14,7 +14,8 @@ export interface body {
   foods: foodData[];
   createtime: string;
   state: string;
-  Charge_amount?: number;
+  Charge_amount: number;
+  payment_amount?: number;
 }
 
 export interface foodData {
@@ -23,6 +24,12 @@ export interface foodData {
   number: number;
   volume: string;
   foodName: string;
+}
+
+export interface search {
+  state?: string;
+  startAt?: string;
+  endAt?: string;
 }
 
 @Controller()
@@ -35,29 +42,28 @@ export class AppController {
 
   /*添加 一个订单的信息*/
   @Post('orders/pushOrder')
-  async pushAdmin(@Body() body: body) {
+  async pushOrder(@Body() body: body) {
     // console.log('传入数据：', body);
-    const status = this.orderService.pushOrder(body);
-    // assert(status, '订单创建失败，该桌/房间号存在未完成的订单');
-    return status;
+
+    return this.orderService.pushOrder(body);
   }
 
   /*删除 订单信息*/
   @Post('orders/DelOrder')
-  async DelAdmin(@Body() body: any) {
+  async DelOrder(@Body() body: any) {
     // console.log('请求数据', body);
     return this.orderService.DelOrder(body);
   }
 
   /*修改 订单信息*/
   @Post('orders/upDate')
-  async alterCommon(@Body() body: any) {
+  async alterOrder(@Body() body: any) {
     return this.orderService.updata(body);
   }
 
   /*查询所有订单*/
   @Get('orders/event')
-  async getHello(@Query() query: any): Promise<orders[]> {
-    return await this.orderService.index();
+  async getOrders(@Query() query: search): Promise<any> {
+    return await this.orderService.index(query);
   }
 }

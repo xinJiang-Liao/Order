@@ -5,9 +5,27 @@ import { UpdateEntity } from '../../../libs/utils/src/model-helper';
 
 @Injectable()
 export class OrderService {
-  /*查询 所有订单*/
-  async index() {
-    return await orders.findAll();
+  /*查询 订单*/
+  async index(query?: any) {
+    console.log(query);
+    /*根据状态查询*/
+    if (query.state) {
+      return await orders.findAll({
+        where: {
+          state: query.state,
+        },
+      }); /*根据时间段查询*/
+    } else if (query.startAt && query.endAt) {
+      return await orders.findAll({
+        where: {
+          endtime: {
+            [Op.between]: [query.startAt, query.endAt],
+          },
+        },
+      });
+    } else {
+      return await orders.findAll();
+    }
   }
 
   /*创建 订单*/
@@ -30,11 +48,12 @@ export class OrderService {
         await Orders.save();
       }
     }
-    return '订单创建完成！';
+    return Orders;
   }
 
   /*删除 菜品*/
   async DelOrder(body: any): Promise<any> {
+    console.log(body.id);
     let Orders: orders;
     if (body.id)
       Orders = await orders.findOne({
@@ -48,7 +67,7 @@ export class OrderService {
     }
   }
 
-  /*修改 菜品信息*/
+  /*修改 订单信息*/
   async updata(body: any): Promise<orders> {
     let Orders: orders;
     if (body.id) Orders = await orders.findOne({ where: { id: body.id } });

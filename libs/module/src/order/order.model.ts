@@ -51,6 +51,12 @@ export class orders extends Model {
    * */
   endtime: string;
 
+  @Column
+  /**
+   * 支付金额
+   * */
+  payment_amount: number;
+
   getModalType(): typeof orders {
     return orders;
   }
