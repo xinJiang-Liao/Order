@@ -1,4 +1,5 @@
-import { Column, Model, Table } from 'sequelize-typescript';
+import { Column, DataType, Model, Table } from "sequelize-typescript";
+import { type } from "os";
 
 @Table({ tableName: 'foods', timestamps: false })
 export class foods extends Model {
@@ -26,11 +27,11 @@ export class foods extends Model {
    * */
   number: number;
 
-  @Column
+  @Column({ type: DataType.TEXT })
   /**
    * 图片
    * */
-  food_Image: string;
+  food_Image: any;
 
   @Column
   /**

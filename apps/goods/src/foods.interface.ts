@@ -4,7 +4,7 @@ export interface foodData {
   foodName: string;
   price: number;
   number: number;
-  food_Image: string;
+  food_Image: any;
   type: string;
   volume: string;
 }
